@@ -5,6 +5,7 @@ include /usr/share/dpatch/dpatch.make
 build: build-stamp
 build-stamp: patch
 	dh build --before configure
+	autoreconf
 	dh_auto_configure -- --datadir=/usr/share/libchewing3
 	dh build --after configure
 	touch build-stamp
