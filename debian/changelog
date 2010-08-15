@@ -1,3 +1,10 @@
+libchewing (0.3.2-2ubuntu1~ppa1) lucid; urgency=low
+
+  [ Keng-Yu Lin ]
+  * Install dictionary tools
+
+ -- Keng-Yu Lin <kengyu@lexical.tw>  Sun, 15 Aug 2010 13:50:07 +0800
+
 libchewing (0.3.2-2) unstable; urgency=low
 
   [ Zhengpeng Hou ]
