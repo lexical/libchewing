@@ -1,0 +1,29 @@
+#!/usr/bin/make -f
+ 
+include /usr/share/dpatch/dpatch.make
+
+build: build-stamp
+build-stamp: patch
+	dh build --before configure
+	dh_auto_configure -- --datadir=/usr/share/libchewing3
+	dh build --after configure
+	touch build-stamp
+
+clean: unpatch
+	[ ! -f test/Makefile ] || (cd test; $(MAKE) distclean)
+	dh clean
+
+install: build install-stamp
+install-stamp:
+	dh install
+	touch install-stamp
+
+# Build architecture-independent files here.
+binary-indep: build install
+	dh binary-indep
+
+# Build architecture-dependent files here.
+binary-arch: build install
+	dh binary-arch
+
+binary: binary-indep binary-arch

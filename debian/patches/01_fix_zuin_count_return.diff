@@ -1,0 +1,20 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## 01_fix_zuin_count_return.diff 
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: Fix zuin_count's return 
+
+@DPATCH@
+
+diff -ruNap libchewing-0.3.2-orig/src/mod_aux.c libchewing-0.3.2/src/mod_aux.c
+--- libchewing-0.3.2-orig/src/mod_aux.c	2009-10-18 09:39:52.000000000 +0000
++++ libchewing-0.3.2/src/mod_aux.c	2009-10-18 09:40:53.000000000 +0000
+@@ -90,7 +90,7 @@ CHEWING_API char *chewing_zuin_String( C
+ 		if ( ctx->output->zuinBuf[ i ].s[ 0 ] != '\0' ) {
+ 			strcat( s, (char *) (ctx->output->zuinBuf[ i ].s) );
+ 			if ( zuin_count )
+-				*zuin_count++;
++				(*zuin_count)++;
+ 		}
+ 	}
+ 	return s;
